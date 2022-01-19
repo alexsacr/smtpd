@@ -475,7 +475,7 @@ loop:
 			if s.srv.Handler != nil {
 				err := s.srv.Handler(s.conn.RemoteAddr(), from, to, buffer.Bytes())
 				if err != nil {
-					s.writef("451 4.3.5 Unable to process mail")
+					s.writef(err.Error())
 					break
 				}
 			}

@@ -337,7 +337,7 @@ func TestCmdDATAWithHandler(t *testing.T) {
 
 func TestCmdDATAWithHandlerError(t *testing.T) {
 	m := mockHandler{}
-	conn := newConn(t, &Server{Handler: m.handler(errors.New("Handler error"))})
+	conn := newConn(t, &Server{Handler: m.handler(errors.New("451 Handler error"))})
 
 	cmdCode(t, conn, "EHLO host.example.com", "250")
 	cmdCode(t, conn, "MAIL FROM:<sender@example.com>", "250")
